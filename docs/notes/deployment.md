@@ -39,7 +39,3 @@ To fill in after I run `make_maps` and the two-laptop rehearsal with M3's final 
 The API has no login and allows any origin (`PATHSNAP_CORS` defaults to `*`), so anyone on the same network can call it. Also, Laptop 2 needs internet: Leaflet is loaded from unpkg.com and the map tiles come from OpenStreetMap, so on a network without internet the map would be blank even though the API works.
 
 
-## Two-laptop demo
-
-- **Laptop 1 (API):** `python -m uvicorn api.main:app --host 0.0.0.0 --port 8000`. Allow TCP port 8000 in Windows Firewall and find the laptop's IP with `ipconfig`. The 10 evaluator trips go in `data/eval/` on this laptop only.
-- **Laptop 2 (UI):** `python ui/serve.py`, then open `http://localhost:8501/?api=http://<laptop1-ip>:8000` in a browser. Both laptops must be on the same Wi-Fi.
