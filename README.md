@@ -40,12 +40,17 @@ python -m venv .venv
 
 Put the raw data under `data/raw/train/<trip>/...` and `data/raw/student_test/<trip>/...`.
 
+## Results
+
+[`RESULTS.md`](RESULTS.md) summarises EDA, feature selection, the 10-model comparison, Bayesian tuning and HMM results in one page, with links to the underlying files in `reports/`.
+
 ## Reproduce the experiments
 
 Run these in order from the project root. Each step caches what the next one needs.
 
 ```powershell
 .\.venv\Scripts\python -m scripts.eda             # reports/eda: inventory, plots, data-quality notes, Folium map
+.\.venv\Scripts\python -m scripts.feature_selection  # reports/features: correlation, gain/permutation importance, ablation
 .\.venv\Scripts\python -m scripts.compare_models  # reports/models: 10 models, 5-fold group CV + student-test + HMM
 .\.venv\Scripts\python -m scripts.tune_bayes --model lightgbm --trials 40   # reports/tuning: Optuna TPE
 .\.venv\Scripts\python -m scripts.tune_hmm        # reports/hmm + exports models/final_model.joblib
@@ -53,6 +58,10 @@ Run these in order from the project root. Each step caches what the next one nee
 ```
 
 All randomness uses `seed` from `configs/default.json`.
+
+To run only some models: `python -m scripts.compare_models --models lightgbm random_forest`. The comparison table and plots are rebuilt from every `result_*.json` in `reports/models/`.
+
+`scripts.tune_bayes` defaults to 40 trials. The committed results used `--trials 15 --search-stride 6 --n-jobs 6`, and `scripts.tune_hmm` used `--dev-trips 15`, to fit the time available.
 
 ### Data partitions
 

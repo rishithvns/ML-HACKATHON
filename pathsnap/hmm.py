@@ -46,7 +46,9 @@ def _route_dist_matrix(net: RoadNetwork, arcs_i, s_i, arcs_j, s_j, cutoff, back_
             if dist is None:
                 dist, _ = net.shortest_from(int(net.dst[a]), cutoff)
             sp = dist.get(int(net.src[b]))
-            if sp is not None:
+            # the cache may hold a search with a larger cutoff; enforce this step's cutoff
+            # so the result does not depend on what was computed earlier
+            if sp is not None and sp <= cutoff:
                 R[ia, jb] = rest + sp + sb
     return R
 
