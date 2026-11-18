@@ -29,6 +29,42 @@ Repo: https://github.com/rishithvns/ML-HACKATHON
    Commit it with a clear message. The slices are `data_eda`, `features_models`, `tuning_hmm` and `deployment`.
 3. **Every member** opens one file of another member's slice on GitHub and leaves a review comment or question on a line. Use the line's "…" menu → *Reference in new issue*, or comment on a commit.
 
+## Running your slice on your own laptop
+
+**One-time setup** (Windows PowerShell, Python 3.11):
+
+```powershell
+git clone https://github.com/<your-username-or-owner>/ML-HACKATHON.git
+cd ML-HACKATHON
+python -m pip install --upgrade pip
+python -m venv .venv
+.\.venv\Scripts\python -m pip install --upgrade pip
+.\.venv\Scripts\python -m pip install -r requirements.txt
+```
+
+Unzip `Student folder.zip` and copy its `train` and `student_test` folders to `data\raw\train` and `data\raw\student_test`.
+
+- If pip fails with `CERTIFICATE_VERIFY_FAILED`, upgrade pip first, as shown above. New pip uses the Windows certificate store.
+- If `import pandas` is blocked by an Application Control policy, keep `pandas==3.0.3` as pinned.
+
+**Then each member runs only their slice, on a branch:**
+
+```powershell
+git checkout -b m<N>-<slice>
+```
+
+| Member | Command(s) | Time on a 16-thread laptop | Commit |
+|---|---|---|---|
+| M1 | `.\.venv\Scripts\python -m scripts.eda` | ~1 min | `reports/eda/` |
+| M2 | `.\.venv\Scripts\python -m scripts.compare_models` | ~25–35 min (KNN, RF and MLP are slowest) | `reports/models/`, `reports/logs/compare_models.log` |
+| M3 | `.\.venv\Scripts\python -m scripts.tune_bayes --model lightgbm --trials 40`, then `.\.venv\Scripts\python -m scripts.tune_hmm` | ~30–45 min + ~8 min | `reports/tuning/`, `reports/hmm/`, `models/final_model.joblib`, `models/pipeline_config.json` |
+| M4 | after M3's model is merged: `git pull`, then `.\.venv\Scripts\python -m scripts.make_maps`, then run the API + UI demo | ~2 min | `reports/maps/`, screenshots of the UI and the API console |
+
+- The first script you run builds `data/processed/` from the raw data (~1 min). It is cached and not committed.
+- The Laptop 1 used in the final evaluation needs `models/final_model.joblib` from M3's merged commit, or must rerun M3's steps.
+- Push your branch and open a pull request. Another member reviews it and merges.
+- If your numbers differ slightly from someone else's run, that's expected: thread scheduling and timing vary. Report the numbers from your own run.
+
 ## After Deliverable-1
 
 Each member clones the repo, sets up the venv (see README), reruns their slice's scripts on their own laptop, and commits the regenerated `reports/` outputs from their own account. They also write their report sections. This is the main, genuine contribution. The notes above are only the starting point.
