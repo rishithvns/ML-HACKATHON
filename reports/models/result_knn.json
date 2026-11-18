@@ -1,0 +1,49 @@
+{
+  "model": "knn",
+  "family": "Instance-based",
+  "config": "StandardScaler + KNN k=25, distance-weighted",
+  "n_train_rows": 149428,
+  "seed": 42,
+  "cv_macro_f1_mean": 0.9259536750947552,
+  "cv_macro_f1_std": 0.02389363976012967,
+  "cv_top1_mean": 0.8816773801562097,
+  "cv_top1_std": 0.041133151151186105,
+  "cv_log_loss_mean": 0.1562602927309263,
+  "cv_log_loss_std": 0.05023477524715186,
+  "cv_seconds": 181.81057210001745,
+  "train_macro_f1": 1.0,
+  "train_top1": 0.9919554691372146,
+  "train_log_loss": 1.1911414477716482e-07,
+  "test_accuracy": 0.9579791259658201,
+  "test_precision": 0.8692307692307693,
+  "test_recall": 0.8824886000314481,
+  "test_f1": 0.8758095139015319,
+  "test_macro_f1": 0.9252603726462203,
+  "test_log_loss": 0.14262301031797361,
+  "test_top1": 0.8826634610359065,
+  "test_candidate_miss_rate": 0.0028223488214080827,
+  "test_confusion": [
+    [
+      92022,
+      2533
+    ],
+    [
+      2242,
+      16837
+    ]
+  ],
+  "fit_seconds": 0.10654480001539923,
+  "inference_ms_per_1k_points": 992.0187160751387,
+  "test_classifier_top1_accuracy": 0.8826634610359065,
+  "test_classifier_arc_f1": 0.8846317642145423,
+  "test_classifier_length_f1": 0.9383574044370786,
+  "test_classifier_route_mismatch": 0.13070647921517872,
+  "test_classifier_route_continuity": 0.7870919131241499,
+  "test_hmm_top1_accuracy": 0.9037265457586369,
+  "test_hmm_arc_f1": 0.937350303480946,
+  "test_hmm_length_f1": 0.9624650009268068,
+  "test_hmm_route_mismatch": 0.07990701209856607,
+  "test_hmm_route_continuity": 0.9989739537006113,
+  "test_hmm_breaks_total": 3,
+  "test_hmm_seconds_total": 1.9991275000211317
+}

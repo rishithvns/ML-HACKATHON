@@ -1,0 +1,486 @@
+training rows (label-valid, stride 2): 529517
+
+=== logistic_regression
+{
+ "model": "logistic_regression",
+ "family": "Linear / probabilistic",
+ "config": "StandardScaler + L2 LogisticRegression, C=1.0, lbfgs",
+ "n_train_rows": 529517,
+ "seed": 42,
+ "cv_macro_f1_mean": 0.9267,
+ "cv_macro_f1_std": 0.0244,
+ "cv_top1_mean": 0.8858,
+ "cv_top1_std": 0.0409,
+ "cv_log_loss_mean": 0.1163,
+ "cv_log_loss_std": 0.0326,
+ "cv_seconds": 12.643,
+ "train_macro_f1": 0.9255,
+ "train_top1": 0.8825,
+ "train_log_loss": 0.1172,
+ "test_accuracy": 0.9582,
+ "test_precision": 0.8629,
+ "test_recall": 0.8931,
+ "test_f1": 0.8778,
+ "test_macro_f1": 0.9263,
+ "test_log_loss": 0.1086,
+ "test_top1": 0.8831,
+ "test_candidate_miss_rate": 0.0028,
+ "fit_seconds": 2.4974,
+ "inference_ms_per_1k_points": 2.2166,
+ "test_classifier_top1_accuracy": 0.8831,
+ "test_classifier_arc_f1": 0.8931,
+ "test_classifier_length_f1": 0.9441,
+ "test_classifier_route_mismatch": 0.1178,
+ "test_classifier_route_continuity": 0.8025,
+ "test_hmm_top1_accuracy": 0.9062,
+ "test_hmm_arc_f1": 0.9456,
+ "test_hmm_length_f1": 0.9639,
+ "test_hmm_route_mismatch": 0.0776,
+ "test_hmm_route_continuity": 0.9987,
+ "test_hmm_breaks_total": 7,
+ "test_hmm_seconds_total": 4.6429
+}
+
+=== gaussian_nb
+{
+ "model": "gaussian_nb",
+ "family": "Linear / probabilistic",
+ "config": "GaussianNB, var_smoothing=1e-9",
+ "n_train_rows": 529517,
+ "seed": 42,
+ "cv_macro_f1_mean": 0.8851,
+ "cv_macro_f1_std": 0.0215,
+ "cv_top1_mean": 0.8726,
+ "cv_top1_std": 0.0403,
+ "cv_log_loss_mean": 0.5281,
+ "cv_log_loss_std": 0.1445,
+ "cv_seconds": 6.368,
+ "train_macro_f1": 0.8794,
+ "train_top1": 0.8696,
+ "train_log_loss": 0.5565,
+ "test_accuracy": 0.9365,
+ "test_precision": 0.7528,
+ "test_recall": 0.9256,
+ "test_f1": 0.8303,
+ "test_macro_f1": 0.8956,
+ "test_log_loss": 0.4778,
+ "test_top1": 0.8732,
+ "test_candidate_miss_rate": 0.0028,
+ "fit_seconds": 0.52,
+ "inference_ms_per_1k_points": 7.1505,
+ "test_classifier_top1_accuracy": 0.8732,
+ "test_classifier_arc_f1": 0.8676,
+ "test_classifier_length_f1": 0.9189,
+ "test_classifier_route_mismatch": 0.1766,
+ "test_classifier_route_continuity": 0.7554,
+ "test_hmm_top1_accuracy": 0.905,
+ "test_hmm_arc_f1": 0.9224,
+ "test_hmm_length_f1": 0.9562,
+ "test_hmm_route_mismatch": 0.0939,
+ "test_hmm_route_continuity": 0.999,
+ "test_hmm_breaks_total": 3,
+ "test_hmm_seconds_total": 3.0046
+}
+
+=== knn
+{
+ "model": "knn",
+ "family": "Instance-based",
+ "config": "StandardScaler + KNN k=25, distance-weighted",
+ "n_train_rows": 149428,
+ "seed": 42,
+ "cv_macro_f1_mean": 0.926,
+ "cv_macro_f1_std": 0.0239,
+ "cv_top1_mean": 0.8817,
+ "cv_top1_std": 0.0411,
+ "cv_log_loss_mean": 0.1563,
+ "cv_log_loss_std": 0.0502,
+ "cv_seconds": 181.8106,
+ "train_macro_f1": 1.0,
+ "train_top1": 0.992,
+ "train_log_loss": 0.0,
+ "test_accuracy": 0.958,
+ "test_precision": 0.8692,
+ "test_recall": 0.8825,
+ "test_f1": 0.8758,
+ "test_macro_f1": 0.9253,
+ "test_log_loss": 0.1426,
+ "test_top1": 0.8827,
+ "test_candidate_miss_rate": 0.0028,
+ "fit_seconds": 0.1065,
+ "inference_ms_per_1k_points": 992.0187,
+ "test_classifier_top1_accuracy": 0.8827,
+ "test_classifier_arc_f1": 0.8846,
+ "test_classifier_length_f1": 0.9384,
+ "test_classifier_route_mismatch": 0.1307,
+ "test_classifier_route_continuity": 0.7871,
+ "test_hmm_top1_accuracy": 0.9037,
+ "test_hmm_arc_f1": 0.9374,
+ "test_hmm_length_f1": 0.9625,
+ "test_hmm_route_mismatch": 0.0799,
+ "test_hmm_route_continuity": 0.999,
+ "test_hmm_breaks_total": 3,
+ "test_hmm_seconds_total": 1.9991
+}
+
+=== decision_tree
+{
+ "model": "decision_tree",
+ "family": "Tree-based",
+ "config": "DecisionTree max_depth=12, min_samples_leaf=50",
+ "n_train_rows": 529517,
+ "seed": 42,
+ "cv_macro_f1_mean": 0.9296,
+ "cv_macro_f1_std": 0.0275,
+ "cv_top1_mean": 0.888,
+ "cv_top1_std": 0.0435,
+ "cv_log_loss_mean": 0.1181,
+ "cv_log_loss_std": 0.04,
+ "cv_seconds": 71.2808,
+ "train_macro_f1": 0.94,
+ "train_top1": 0.9037,
+ "train_log_loss": 0.0821,
+ "test_accuracy": 0.9602,
+ "test_precision": 0.8869,
+ "test_recall": 0.8747,
+ "test_f1": 0.8808,
+ "test_macro_f1": 0.9284,
+ "test_log_loss": 0.1058,
+ "test_top1": 0.89,
+ "test_candidate_miss_rate": 0.0028,
+ "fit_seconds": 17.4489,
+ "inference_ms_per_1k_points": 1.725,
+ "test_classifier_top1_accuracy": 0.89,
+ "test_classifier_arc_f1": 0.892,
+ "test_classifier_length_f1": 0.9438,
+ "test_classifier_route_mismatch": 0.1185,
+ "test_classifier_route_continuity": 0.8129,
+ "test_hmm_top1_accuracy": 0.9084,
+ "test_hmm_arc_f1": 0.9368,
+ "test_hmm_length_f1": 0.9627,
+ "test_hmm_route_mismatch": 0.0793,
+ "test_hmm_route_continuity": 0.999,
+ "test_hmm_breaks_total": 3,
+ "test_hmm_seconds_total": 1.5437
+}
+
+=== random_forest
+{
+ "model": "random_forest",
+ "family": "Ensemble (bagging)",
+ "config": "RandomForest 200 trees, max_depth=20, min_samples_leaf=5",
+ "n_train_rows": 399981,
+ "seed": 42,
+ "cv_macro_f1_mean": 0.9345,
+ "cv_macro_f1_std": 0.0255,
+ "cv_top1_mean": 0.8933,
+ "cv_top1_std": 0.0425,
+ "cv_log_loss_mean": 0.0936,
+ "cv_log_loss_std": 0.0309,
+ "cv_seconds": 249.3026,
+ "train_macro_f1": 0.9643,
+ "train_top1": 0.9423,
+ "train_log_loss": 0.0556,
+ "test_accuracy": 0.9637,
+ "test_precision": 0.9022,
+ "test_recall": 0.8791,
+ "test_f1": 0.8905,
+ "test_macro_f1": 0.9344,
+ "test_log_loss": 0.0876,
+ "test_top1": 0.8936,
+ "test_candidate_miss_rate": 0.0028,
+ "fit_seconds": 49.77,
+ "inference_ms_per_1k_points": 28.3159,
+ "test_classifier_top1_accuracy": 0.8936,
+ "test_classifier_arc_f1": 0.8966,
+ "test_classifier_length_f1": 0.9443,
+ "test_classifier_route_mismatch": 0.1176,
+ "test_classifier_route_continuity": 0.825,
+ "test_hmm_top1_accuracy": 0.9094,
+ "test_hmm_arc_f1": 0.9424,
+ "test_hmm_length_f1": 0.9646,
+ "test_hmm_route_mismatch": 0.0751,
+ "test_hmm_route_continuity": 0.9989,
+ "test_hmm_breaks_total": 3,
+ "test_hmm_seconds_total": 2.218
+}
+
+=== extra_trees
+{
+ "model": "extra_trees",
+ "family": "Ensemble (bagging)",
+ "config": "ExtraTrees 200 trees, max_depth=20, min_samples_leaf=5",
+ "n_train_rows": 399981,
+ "seed": 42,
+ "cv_macro_f1_mean": 0.9328,
+ "cv_macro_f1_std": 0.0248,
+ "cv_top1_mean": 0.8911,
+ "cv_top1_std": 0.0412,
+ "cv_log_loss_mean": 0.0967,
+ "cv_log_loss_std": 0.0301,
+ "cv_seconds": 128.2614,
+ "train_macro_f1": 0.9426,
+ "train_top1": 0.9094,
+ "train_log_loss": 0.0792,
+ "test_accuracy": 0.9618,
+ "test_precision": 0.8959,
+ "test_recall": 0.8737,
+ "test_f1": 0.8847,
+ "test_macro_f1": 0.9309,
+ "test_log_loss": 0.0923,
+ "test_top1": 0.8896,
+ "test_candidate_miss_rate": 0.0028,
+ "fit_seconds": 21.6426,
+ "inference_ms_per_1k_points": 30.259,
+ "test_classifier_top1_accuracy": 0.8896,
+ "test_classifier_arc_f1": 0.8899,
+ "test_classifier_length_f1": 0.9423,
+ "test_classifier_route_mismatch": 0.122,
+ "test_classifier_route_continuity": 0.8107,
+ "test_hmm_top1_accuracy": 0.9081,
+ "test_hmm_arc_f1": 0.9423,
+ "test_hmm_length_f1": 0.9652,
+ "test_hmm_route_mismatch": 0.0738,
+ "test_hmm_route_continuity": 0.999,
+ "test_hmm_breaks_total": 3,
+ "test_hmm_seconds_total": 2.1514
+}
+
+=== hist_gradient_boosting
+{
+ "model": "hist_gradient_boosting",
+ "family": "Boosting",
+ "config": "HistGradientBoosting lr=0.1, max_iter=300, max_leaf_nodes=31",
+ "n_train_rows": 529517,
+ "seed": 42,
+ "cv_macro_f1_mean": 0.9302,
+ "cv_macro_f1_std": 0.0262,
+ "cv_top1_mean": 0.8849,
+ "cv_top1_std": 0.0445,
+ "cv_log_loss_mean": 0.1135,
+ "cv_log_loss_std": 0.0344,
+ "cv_seconds": 68.3715,
+ "train_macro_f1": 0.9459,
+ "train_top1": 0.9095,
+ "train_log_loss": 0.081,
+ "test_accuracy": 0.9611,
+ "test_precision": 0.8858,
+ "test_recall": 0.8822,
+ "test_f1": 0.884,
+ "test_macro_f1": 0.9303,
+ "test_log_loss": 0.1113,
+ "test_top1": 0.8866,
+ "test_candidate_miss_rate": 0.0028,
+ "fit_seconds": 12.37,
+ "inference_ms_per_1k_points": 21.2368,
+ "test_classifier_top1_accuracy": 0.8866,
+ "test_classifier_arc_f1": 0.8832,
+ "test_classifier_length_f1": 0.9207,
+ "test_classifier_route_mismatch": 0.1712,
+ "test_classifier_route_continuity": 0.797,
+ "test_hmm_top1_accuracy": 0.908,
+ "test_hmm_arc_f1": 0.9417,
+ "test_hmm_length_f1": 0.9641,
+ "test_hmm_route_mismatch": 0.0762,
+ "test_hmm_route_continuity": 0.9989,
+ "test_hmm_breaks_total": 3,
+ "test_hmm_seconds_total": 2.1628
+}
+
+=== lightgbm
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\lightgbm\sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+{
+ "model": "lightgbm",
+ "family": "Boosting",
+ "config": "LightGBM 400 trees, lr=0.05, num_leaves=63, subsample=0.8",
+ "n_train_rows": 529517,
+ "seed": 42,
+ "cv_macro_f1_mean": 0.9337,
+ "cv_macro_f1_std": 0.0262,
+ "cv_top1_mean": 0.8932,
+ "cv_top1_std": 0.0434,
+ "cv_log_loss_mean": 0.0941,
+ "cv_log_loss_std": 0.0331,
+ "cv_seconds": 67.7594,
+ "train_macro_f1": 0.959,
+ "train_top1": 0.9313,
+ "train_log_loss": 0.0608,
+ "test_accuracy": 0.9648,
+ "test_precision": 0.9038,
+ "test_recall": 0.8848,
+ "test_f1": 0.8942,
+ "test_macro_f1": 0.9366,
+ "test_log_loss": 0.0855,
+ "test_top1": 0.8993,
+ "test_candidate_miss_rate": 0.0028,
+ "fit_seconds": 12.2879,
+ "inference_ms_per_1k_points": 22.6328,
+ "test_classifier_top1_accuracy": 0.8993,
+ "test_classifier_arc_f1": 0.9001,
+ "test_classifier_length_f1": 0.9475,
+ "test_classifier_route_mismatch": 0.1101,
+ "test_classifier_route_continuity": 0.8273,
+ "test_hmm_top1_accuracy": 0.9091,
+ "test_hmm_arc_f1": 0.9415,
+ "test_hmm_length_f1": 0.9641,
+ "test_hmm_route_mismatch": 0.0762,
+ "test_hmm_route_continuity": 0.9989,
+ "test_hmm_breaks_total": 3,
+ "test_hmm_seconds_total": 1.9592
+}
+
+=== xgboost
+{
+ "model": "xgboost",
+ "family": "Boosting",
+ "config": "XGBoost hist 400 trees, lr=0.05, max_depth=7, subsample=0.8",
+ "n_train_rows": 529517,
+ "seed": 42,
+ "cv_macro_f1_mean": 0.9341,
+ "cv_macro_f1_std": 0.026,
+ "cv_top1_mean": 0.8925,
+ "cv_top1_std": 0.044,
+ "cv_log_loss_mean": 0.094,
+ "cv_log_loss_std": 0.0325,
+ "cv_seconds": 68.4318,
+ "train_macro_f1": 0.9585,
+ "train_top1": 0.93,
+ "train_log_loss": 0.062,
+ "test_accuracy": 0.9646,
+ "test_precision": 0.9042,
+ "test_recall": 0.8826,
+ "test_f1": 0.8933,
+ "test_macro_f1": 0.936,
+ "test_log_loss": 0.0857,
+ "test_top1": 0.8974,
+ "test_candidate_miss_rate": 0.0028,
+ "fit_seconds": 15.0088,
+ "inference_ms_per_1k_points": 10.018,
+ "test_classifier_top1_accuracy": 0.8974,
+ "test_classifier_arc_f1": 0.9011,
+ "test_classifier_length_f1": 0.9474,
+ "test_classifier_route_mismatch": 0.1108,
+ "test_classifier_route_continuity": 0.8302,
+ "test_hmm_top1_accuracy": 0.9075,
+ "test_hmm_arc_f1": 0.9418,
+ "test_hmm_length_f1": 0.9643,
+ "test_hmm_route_mismatch": 0.0757,
+ "test_hmm_route_continuity": 0.9989,
+ "test_hmm_breaks_total": 3,
+ "test_hmm_seconds_total": 2.4619
+}
+
+=== mlp
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (30) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+C:\Users\rishi\Downloads\pathsnap\.venv\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:695: UserWarning: Got `batch_size` less than 1 or larger than sample size. It is going to be clipped
+  warnings.warn(
+{
+ "model": "mlp",
+ "family": "Neural network",
+ "config": "StandardScaler + MLP (64, 32) ReLU, adam lr=1e-3, alpha=1e-4, 30 epochs",
+ "n_train_rows": 399981,
+ "seed": 42,
+ "cv_macro_f1_mean": 0.9307,
+ "cv_macro_f1_std": 0.0261,
+ "cv_top1_mean": 0.8896,
+ "cv_top1_std": 0.043,
+ "cv_log_loss_mean": 0.0992,
+ "cv_log_loss_std": 0.0323,
+ "cv_seconds": 266.9701,
+ "train_macro_f1": 0.9384,
+ "train_top1": 0.8999,
+ "train_log_loss": 0.0869,
+ "test_accuracy": 0.959,
+ "test_precision": 0.8891,
+ "test_recall": 0.8638,
+ "test_f1": 0.8763,
+ "test_macro_f1": 0.9259,
+ "test_log_loss": 0.0935,
+ "test_top1": 0.8828,
+ "test_candidate_miss_rate": 0.0028,
+ "fit_seconds": 49.0816,
+ "inference_ms_per_1k_points": 6.3433,
+ "test_classifier_top1_accuracy": 0.8828,
+ "test_classifier_arc_f1": 0.8964,
+ "test_classifier_length_f1": 0.944,
+ "test_classifier_route_mismatch": 0.1181,
+ "test_classifier_route_continuity": 0.8275,
+ "test_hmm_top1_accuracy": 0.906,
+ "test_hmm_arc_f1": 0.942,
+ "test_hmm_length_f1": 0.9647,
+ "test_hmm_route_mismatch": 0.0749,
+ "test_hmm_route_continuity": 0.999,
+ "test_hmm_breaks_total": 3,
+ "test_hmm_seconds_total": 1.822
+}
+                 Model       Algorithm family                                                       Key configuration       CV macro F1  CV Top-1  Student-test Top-1 (classifier)  Student-test Top-1 (+HMM)  Route continuity (classifier)  Route continuity (+HMM)  Student-test macro F1  Student-test log loss  Fit time (s)  Inference (ms / 1k points)
+         random_forest     Ensemble (bagging)                RandomForest 200 trees, max_depth=20, min_samples_leaf=5 0.9345 +/- 0.0255    0.8933                           0.8936                     0.9094                         0.8250                   0.9989                 0.9344                 0.0876          49.8                        28.3
+              lightgbm               Boosting               LightGBM 400 trees, lr=0.05, num_leaves=63, subsample=0.8 0.9337 +/- 0.0262    0.8932                           0.8993                     0.9091                         0.8273                   0.9989                 0.9366                 0.0855          12.3                        22.6
+               xgboost               Boosting             XGBoost hist 400 trees, lr=0.05, max_depth=7, subsample=0.8  0.9341 +/- 0.026    0.8925                           0.8974                     0.9075                         0.8302                   0.9989                 0.9360                 0.0857          15.0                        10.0
+           extra_trees     Ensemble (bagging)                  ExtraTrees 200 trees, max_depth=20, min_samples_leaf=5 0.9328 +/- 0.0248    0.8911                           0.8896                     0.9081                         0.8107                   0.9990                 0.9309                 0.0923          21.6                        30.3
+                   mlp         Neural network StandardScaler + MLP (64, 32) ReLU, adam lr=1e-3, alpha=1e-4, 30 epochs 0.9307 +/- 0.0261    0.8896                           0.8828                     0.9060                         0.8275                   0.9990                 0.9259                 0.0935          49.1                         6.3
+         decision_tree             Tree-based                          DecisionTree max_depth=12, min_samples_leaf=50 0.9296 +/- 0.0275    0.8880                           0.8900                     0.9084                         0.8129                   0.9990                 0.9284                 0.1058          17.4                         1.7
+   logistic_regression Linear / probabilistic                    StandardScaler + L2 LogisticRegression, C=1.0, lbfgs 0.9267 +/- 0.0244    0.8858                           0.8831                     0.9062                         0.8025                   0.9987                 0.9263                 0.1086           2.5                         2.2
+hist_gradient_boosting               Boosting            HistGradientBoosting lr=0.1, max_iter=300, max_leaf_nodes=31 0.9302 +/- 0.0262    0.8849                           0.8866                     0.9080                         0.7970                   0.9989                 0.9303                 0.1113          12.4                        21.2
+                   knn         Instance-based                            StandardScaler + KNN k=25, distance-weighted  0.926 +/- 0.0239    0.8817                           0.8827                     0.9037                         0.7871                   0.9990                 0.9253                 0.1426           0.1                       992.0
+           gaussian_nb Linear / probabilistic                                          GaussianNB, var_smoothing=1e-9 0.8851 +/- 0.0215    0.8726                           0.8732                     0.9050                         0.7554                   0.9990                 0.8956                 0.4778           0.5                         7.2

@@ -1,0 +1,49 @@
+{
+  "model": "logistic_regression",
+  "family": "Linear / probabilistic",
+  "config": "StandardScaler + L2 LogisticRegression, C=1.0, lbfgs",
+  "n_train_rows": 529517,
+  "seed": 42,
+  "cv_macro_f1_mean": 0.9267304900318359,
+  "cv_macro_f1_std": 0.02436036003533544,
+  "cv_top1_mean": 0.8858054699113375,
+  "cv_top1_std": 0.04093874863599638,
+  "cv_log_loss_mean": 0.11634740985042165,
+  "cv_log_loss_std": 0.03256641389451451,
+  "cv_seconds": 12.642957699979888,
+  "train_macro_f1": 0.9254894891839924,
+  "train_top1": 0.8824520476931053,
+  "train_log_loss": 0.11721848739240996,
+  "test_accuracy": 0.9582343312740905,
+  "test_precision": 0.8629158859573606,
+  "test_recall": 0.893128570679805,
+  "test_f1": 0.8777623242157317,
+  "test_macro_f1": 0.9262884280040037,
+  "test_log_loss": 0.10863536794044498,
+  "test_top1": 0.8830815867872263,
+  "test_candidate_miss_rate": 0.0028223488214080827,
+  "test_confusion": [
+    [
+      91848,
+      2707
+    ],
+    [
+      2039,
+      17040
+    ]
+  ],
+  "fit_seconds": 2.4974375999881886,
+  "inference_ms_per_1k_points": 2.216623174252634,
+  "test_classifier_top1_accuracy": 0.8830815867872263,
+  "test_classifier_arc_f1": 0.8930735312509277,
+  "test_classifier_length_f1": 0.9440787746393472,
+  "test_classifier_route_mismatch": 0.11784348480585849,
+  "test_classifier_route_continuity": 0.8025102185115806,
+  "test_hmm_top1_accuracy": 0.9061830345476402,
+  "test_hmm_arc_f1": 0.9456365822317185,
+  "test_hmm_length_f1": 0.9639125517997595,
+  "test_hmm_route_mismatch": 0.07757248403692896,
+  "test_hmm_route_continuity": 0.9986788500618442,
+  "test_hmm_breaks_total": 7,
+  "test_hmm_seconds_total": 4.642919099977007
+}

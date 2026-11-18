@@ -1,0 +1,49 @@
+{
+  "model": "gaussian_nb",
+  "family": "Linear / probabilistic",
+  "config": "GaussianNB, var_smoothing=1e-9",
+  "n_train_rows": 529517,
+  "seed": 42,
+  "cv_macro_f1_mean": 0.8850833301343142,
+  "cv_macro_f1_std": 0.021507842073693943,
+  "cv_top1_mean": 0.8726177101779721,
+  "cv_top1_std": 0.04027225874284261,
+  "cv_log_loss_mean": 0.5281431712095247,
+  "cv_log_loss_std": 0.1444567172546168,
+  "cv_seconds": 6.368023200018797,
+  "train_macro_f1": 0.8794476975046593,
+  "train_top1": 0.8696323656471402,
+  "train_log_loss": 0.5565379308369361,
+  "test_accuracy": 0.9364714786067551,
+  "test_precision": 0.7527922244010572,
+  "test_recall": 0.9255726191100162,
+  "test_f1": 0.8302889249359381,
+  "test_macro_f1": 0.8956052405723478,
+  "test_log_loss": 0.47784269144856606,
+  "test_top1": 0.8732033659122981,
+  "test_candidate_miss_rate": 0.0028223488214080827,
+  "test_confusion": [
+    [
+      88756,
+      5799
+    ],
+    [
+      1420,
+      17659
+    ]
+  ],
+  "fit_seconds": 0.5200382000184618,
+  "inference_ms_per_1k_points": 7.150542797092523,
+  "test_classifier_top1_accuracy": 0.8732033659122981,
+  "test_classifier_arc_f1": 0.8676198347579092,
+  "test_classifier_length_f1": 0.9189264565299544,
+  "test_classifier_route_mismatch": 0.17656995325593328,
+  "test_classifier_route_continuity": 0.7554183721172111,
+  "test_hmm_top1_accuracy": 0.904980923012596,
+  "test_hmm_arc_f1": 0.9224001061940102,
+  "test_hmm_length_f1": 0.9562015327169998,
+  "test_hmm_route_mismatch": 0.09387917929514109,
+  "test_hmm_route_continuity": 0.9989758578998817,
+  "test_hmm_breaks_total": 3,
+  "test_hmm_seconds_total": 3.004561399924569
+}
