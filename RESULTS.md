@@ -44,16 +44,16 @@ Ten models from 7 families were compared. CV is 5-fold `GroupKFold` by trip. "+H
 
 | Model | Algorithm family | CV macro F1 | CV Top-1 | Student-test Top-1 (classifier) | Student-test Top-1 (+HMM) | Student-test macro F1 | Student-test log loss |
 |---|---|---|---|---|---|---|---|
-| random_forest | Ensemble (bagging) | 0.9345 ± 0.0255 | 0.8933 | 0.8936 | 0.9094 | 0.9344 | 0.0876 |
-| **lightgbm** | Boosting | 0.9337 ± 0.0262 | 0.8932 | **0.8993** | 0.9091 | **0.9366** | **0.0855** |
-| xgboost | Boosting | 0.9341 ± 0.026 | 0.8925 | 0.8974 | 0.9075 | 0.936 | 0.0857 |
-| extra_trees | Ensemble (bagging) | 0.9328 ± 0.0248 | 0.8911 | 0.8896 | 0.9081 | 0.9309 | 0.0923 |
-| mlp | Neural network | 0.9307 ± 0.0261 | 0.8896 | 0.8828 | 0.906 | 0.9259 | 0.0935 |
-| decision_tree | Tree-based | 0.9296 ± 0.0275 | 0.888 | 0.89 | 0.9084 | 0.9284 | 0.1058 |
+| random_forest | Ensemble (bagging) | 0.9345 ± 0.0255 | 0.8933 | 0.8936 | 0.9097 | 0.9344 | 0.0876 |
+| **lightgbm** | Boosting | 0.9337 ± 0.0262 | 0.8932 | **0.8993** | 0.9094 | **0.9366** | **0.0855** |
+| xgboost | Boosting | 0.9341 ± 0.026 | 0.8925 | 0.8974 | 0.9079 | 0.936 | 0.0857 |
+| extra_trees | Ensemble (bagging) | 0.9328 ± 0.0248 | 0.8911 | 0.8896 | 0.9084 | 0.9309 | 0.0923 |
+| mlp | Neural network | 0.9307 ± 0.0261 | 0.8896 | 0.8828 | 0.9063 | 0.9259 | 0.0935 |
+| decision_tree | Tree-based | 0.9296 ± 0.0275 | 0.888 | 0.89 | 0.9087 | 0.9284 | 0.1058 |
 | logistic_regression | Linear / probabilistic | 0.9267 ± 0.0244 | 0.8858 | 0.8831 | 0.9062 | 0.9263 | 0.1086 |
-| hist_gradient_boosting | Boosting | 0.9302 ± 0.0262 | 0.8849 | 0.8866 | 0.908 | 0.9303 | 0.1113 |
-| knn | Instance-based | 0.926 ± 0.0239 | 0.8817 | 0.8827 | 0.9037 | 0.9253 | 0.1426 |
-| gaussian_nb | Linear / probabilistic | 0.8851 ± 0.0215 | 0.8726 | 0.8732 | 0.905 | 0.8956 | 0.4778 |
+| hist_gradient_boosting | Boosting | 0.9302 ± 0.0262 | 0.8849 | 0.8866 | 0.9083 | 0.9303 | 0.1113 |
+| knn | Instance-based | 0.926 ± 0.0239 | 0.8817 | 0.8827 | 0.904 | 0.9253 | 0.1426 |
+| gaussian_nb | Linear / probabilistic | 0.8851 ± 0.0215 | 0.8726 | 0.8732 | 0.9055 | 0.8956 | 0.4778 |
 
 **Selected model: LightGBM.**
 - On CV Top-1 (the primary metric) it is tied with Random Forest, which leads by 0.0001.
@@ -68,29 +68,34 @@ Per-model details are in `reports/models/`:
 
 ## 4. Bayesian hyperparameter optimisation (`python -m scripts.tune_bayes` → `reports/tuning/`)
 
-- **Method:** Optuna TPE sampler, 15 trials (13 completed, 2 pruned by the median pruner), 3-fold group CV on training trips.
+- **Method:** Optuna TPE sampler (10 random start-up trials, then guided), **40 trials** (33 completed, 7 pruned by the median pruner), 3-fold group CV on training trips (every 6th fix), 392 s.
 - **Objective:** maximise mean CV observation Top-1.
-- **Best parameters:** 300 trees, learning rate 0.048, 50 leaves, min_child_samples 26.
+- **Best parameters (trial 30, search CV Top-1 0.8902):** 150 trees, learning rate 0.016, 149 leaves, min_child_samples 52, subsample 0.92, colsample_bytree 0.61, reg_lambda 0.0125, reg_alpha 0.0055.
+- **Most influential (fANOVA):** colsample_bytree 0.33, learning_rate 0.20, reg_lambda 0.18.
 
 | | Untuned | Tuned |
 |---|---|---|
-| CV Top-1 | 0.8932 | 0.8925 |
-| CV macro F1 | 0.9337 | 0.9339 |
-| CV log loss | 0.0941 | 0.0931 |
-| Student-test Top-1 | 0.8993 | 0.8966 |
-| Fit time (s) | 12.3 | 6.9 |
+| CV Top-1 | 0.8932 | 0.8926 |
+| CV macro F1 | 0.9337 | 0.9335 |
+| CV log loss | 0.0941 | 0.1106 |
+| Student-test Top-1 (classifier only) | 0.8993 | 0.8941 |
+| Student-test macro F1 | 0.9366 | 0.9346 |
+| Student-test log loss | 0.0855 | 0.1056 |
+| Student-test Top-1 + HMM (default decoder) | 0.9094 | **0.9114** |
+| Fit time (s) / inference (ms per 1k fixes) | 6.5 / 15.8 | 4.3 / 13.3 |
 
-Tuning gave no meaningful accuracy gain; the defaults were already near-optimal. It did give slightly better CV log loss and halved the training time.
+The tuned model (fewer trees, low learning rate) is slightly worse on its own and gives softer, less calibrated probabilities (higher log loss). It is slightly better once the HMM decodes it, and it is faster. Point-wise accuracy is near the same ceiling for both; the features limit it more than the hyperparameters do. The tuned model is deployed.
 
 ## 5. HMM/Viterbi route reconstruction (`python -m scripts.tune_hmm` → `reports/hmm/`)
 
-Student-test results for the tuned model with the tuned decoder (β = 10 m, emission weight 0.5, U-turn penalty 10):
+The decoder was tuned on 15 training trips with out-of-fold probabilities. Chosen: β = 10 m, emission weight 0.5, U-turn penalty 10. Student-test results for the deployed pipeline:
 
 | | Classifier only | Classifier + HMM |
 |---|---|---|
-| Observation Top-1 | 0.8966 | **0.9052** |
-| Route continuity | 0.838 | **0.999** |
-| Route arc F1 | 0.899 | **0.939** |
-| Route mismatch (lower is better) | 0.114 | **0.078** |
+| Observation Top-1 | 0.8941 | **0.9062** |
+| Route continuity | 0.828 | **0.9987** |
+| Route arc F1 | 0.895 | **0.941** |
+| Length-weighted F1 | 0.945 | **0.963** |
+| Route mismatch (lower is better) | 0.115 | **0.079** |
 
-The HMM did not help on trips 00000077 and 00000040 (see `reports/hmm/student_test_trips_tuned_decoder.csv`).
+The HMM improves Top-1 on 9 of 10 trips. It did not help on trip 00000040 (0.946 → 0.931); on trip 00000077 it gains only 0.746 → 0.749 (see `reports/hmm/student_test_trips_tuned_decoder.csv`). On the student-test trips the default decoder (β = 5, w = 1) scores 0.9114, higher than the decoder chosen on training trips. We keep the training-chosen decoder so that no setting is picked using test data.

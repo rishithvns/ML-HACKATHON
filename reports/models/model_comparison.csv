@@ -1,11 +1,11 @@
 Model,Algorithm family,Key configuration,CV macro F1,CV Top-1,Student-test Top-1 (classifier),Student-test Top-1 (+HMM),Route continuity (classifier),Route continuity (+HMM),Student-test macro F1,Student-test log loss,Fit time (s),Inference (ms / 1k points)
-random_forest,Ensemble (bagging),"RandomForest 200 trees, max_depth=20, min_samples_leaf=5",0.9345 +/- 0.0255,0.8933,0.8936,0.9094,0.825,0.9989,0.9344,0.0876,49.8,28.3
-lightgbm,Boosting,"LightGBM 400 trees, lr=0.05, num_leaves=63, subsample=0.8",0.9337 +/- 0.0262,0.8932,0.8993,0.9091,0.8273,0.9989,0.9366,0.0855,12.3,22.6
-xgboost,Boosting,"XGBoost hist 400 trees, lr=0.05, max_depth=7, subsample=0.8",0.9341 +/- 0.026,0.8925,0.8974,0.9075,0.8302,0.9989,0.936,0.0857,15.0,10.0
-extra_trees,Ensemble (bagging),"ExtraTrees 200 trees, max_depth=20, min_samples_leaf=5",0.9328 +/- 0.0248,0.8911,0.8896,0.9081,0.8107,0.999,0.9309,0.0923,21.6,30.3
-mlp,Neural network,"StandardScaler + MLP (64, 32) ReLU, adam lr=1e-3, alpha=1e-4, 30 epochs",0.9307 +/- 0.0261,0.8896,0.8828,0.906,0.8275,0.999,0.9259,0.0935,49.1,6.3
-decision_tree,Tree-based,"DecisionTree max_depth=12, min_samples_leaf=50",0.9296 +/- 0.0275,0.888,0.89,0.9084,0.8129,0.999,0.9284,0.1058,17.4,1.7
-logistic_regression,Linear / probabilistic,"StandardScaler + L2 LogisticRegression, C=1.0, lbfgs",0.9267 +/- 0.0244,0.8858,0.8831,0.9062,0.8025,0.9987,0.9263,0.1086,2.5,2.2
-hist_gradient_boosting,Boosting,"HistGradientBoosting lr=0.1, max_iter=300, max_leaf_nodes=31",0.9302 +/- 0.0262,0.8849,0.8866,0.908,0.797,0.9989,0.9303,0.1113,12.4,21.2
-knn,Instance-based,"StandardScaler + KNN k=25, distance-weighted",0.926 +/- 0.0239,0.8817,0.8827,0.9037,0.7871,0.999,0.9253,0.1426,0.1,992.0
-gaussian_nb,Linear / probabilistic,"GaussianNB, var_smoothing=1e-9",0.8851 +/- 0.0215,0.8726,0.8732,0.905,0.7554,0.999,0.8956,0.4778,0.5,7.2
+random_forest,Ensemble (bagging),"RandomForest 200 trees, max_depth=20, min_samples_leaf=5",0.9345 +/- 0.0255,0.8933,0.8936,0.9097,0.825,0.9986,0.9344,0.0876,42.4,22.3
+lightgbm,Boosting,"LightGBM 400 trees, lr=0.05, num_leaves=63, subsample=0.8",0.9337 +/- 0.0262,0.8932,0.8993,0.9094,0.8273,0.9986,0.9366,0.0855,10.8,22.0
+xgboost,Boosting,"XGBoost hist 400 trees, lr=0.05, max_depth=7, subsample=0.8",0.9341 +/- 0.026,0.8925,0.8974,0.9079,0.8302,0.9986,0.936,0.0857,12.5,8.9
+extra_trees,Ensemble (bagging),"ExtraTrees 200 trees, max_depth=20, min_samples_leaf=5",0.9328 +/- 0.0248,0.8911,0.8896,0.9084,0.8107,0.9987,0.9309,0.0923,16.4,22.6
+mlp,Neural network,"StandardScaler + MLP (64, 32) ReLU, adam lr=1e-3, alpha=1e-4, 30 epochs",0.9307 +/- 0.0261,0.8896,0.8828,0.9063,0.8275,0.9987,0.9259,0.0935,48.7,4.4
+decision_tree,Tree-based,"DecisionTree max_depth=12, min_samples_leaf=50",0.9296 +/- 0.0275,0.888,0.89,0.9087,0.8129,0.9987,0.9284,0.1058,19.0,1.6
+logistic_regression,Linear / probabilistic,"StandardScaler + L2 LogisticRegression, C=1.0, lbfgs",0.9267 +/- 0.0244,0.8858,0.8831,0.9062,0.8025,0.9987,0.9263,0.1086,2.0,1.6
+hist_gradient_boosting,Boosting,"HistGradientBoosting lr=0.1, max_iter=300, max_leaf_nodes=31",0.9302 +/- 0.0262,0.8849,0.8866,0.9083,0.797,0.9987,0.9303,0.1113,8.8,20.0
+knn,Instance-based,"StandardScaler + KNN k=25, distance-weighted",0.926 +/- 0.0239,0.8817,0.8827,0.904,0.7871,0.9987,0.9253,0.1426,0.1,991.5
+gaussian_nb,Linear / probabilistic,"GaussianNB, var_smoothing=1e-9",0.8851 +/- 0.0215,0.8726,0.8732,0.9055,0.7554,0.9987,0.8956,0.4778,0.3,4.4

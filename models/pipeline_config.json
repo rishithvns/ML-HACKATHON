@@ -53,14 +53,14 @@
   "meta": {
     "model_name": "lightgbm (Optuna-tuned)",
     "model_params": {
-      "n_estimators": 300,
-      "learning_rate": 0.048164145309070844,
-      "num_leaves": 50,
-      "min_child_samples": 26,
-      "subsample": 0.8059264473611898,
-      "colsample_bytree": 0.4836963163912251,
-      "reg_lambda": 0.01474275315991467,
-      "reg_alpha": 0.029204338471814112
+      "n_estimators": 150,
+      "learning_rate": 0.015982990596969896,
+      "num_leaves": 149,
+      "min_child_samples": 52,
+      "subsample": 0.9195379514910088,
+      "colsample_bytree": 0.6138117601150644,
+      "reg_lambda": 0.012525644184524768,
+      "reg_alpha": 0.005499656884267853
     },
     "decoder_tuned_on": [
       "00000008",
@@ -79,20 +79,20 @@
       "00000098",
       "00000099"
     ],
-    "created_utc": "2026-11-18T06:13:01+00:00",
+    "created_utc": "2026-11-18T13:35:24+00:00",
     "student_test": {
-      "classifier_top1_accuracy": 0.8966184079862018,
-      "classifier_arc_f1": 0.8986142589857353,
-      "classifier_length_f1": 0.9458494237975904,
-      "classifier_route_mismatch": 0.11433597137804605,
-      "classifier_route_continuity": 0.8381030313529243,
-      "hmm_top1_accuracy": 0.9051899858882559,
-      "hmm_arc_f1": 0.9387608680605082,
-      "hmm_length_f1": 0.9632602578053936,
-      "hmm_route_mismatch": 0.07812992354614771,
-      "hmm_route_continuity": 0.9989551860916533,
-      "hmm_breaks_total": 3,
-      "hmm_seconds_total": 1.9452346000471152
+      "classifier_top1_accuracy": 0.8941096534782836,
+      "classifier_arc_f1": 0.8949880838383224,
+      "classifier_length_f1": 0.9452701416522059,
+      "classifier_route_mismatch": 0.1154194027569135,
+      "classifier_route_continuity": 0.8274666066675607,
+      "hmm_top1_accuracy": 0.9061830345476402,
+      "hmm_arc_f1": 0.9413502969166716,
+      "hmm_length_f1": 0.9630953098035901,
+      "hmm_route_mismatch": 0.07924543328317678,
+      "hmm_route_continuity": 0.9986590878112922,
+      "hmm_breaks_total": 7,
+      "hmm_seconds_total": 1.6062418000074103
     }
   }
 }

@@ -25,7 +25,7 @@ We calculate two distances:
 - GPS distance (d_gps): Straight-line distance between two consecutive GPS observations.
 - Route distance (d_route): Distance travelled through the road network between the projected positions of the two candidate road arcs.
 We calculate the transition score using:
-  T = -((d_route - d_gps)/beta_eff)
+  T = -|d_route - d_gps| / beta_eff
 The transition score is higher when the road-network distance is close to the GPS distance.
 Role of beta:
 - Smaller beta: The model penalises differences between the two distances more heavily.
@@ -44,10 +44,10 @@ Our implementation handles these situations as follows:
 This prevents the HMM from forcing an unrealistic road connection.
 
 ## 5. Optuna: what was searched, objective, number of trials, best values
-We used Optuna with a TPE sampler to tune eight LightGBM hyperparameters: number of estimators, learning rate, number of leaves, minimum child samples, subsampling ratio, feature sampling ratio, and L1 and L2 regularization. The objective was to maximize mean observation-level Top-1 accuracy using 3-fold GroupKFold cross-validation. We conducted 15 trials, of which 13 were completed and 2 were pruned. The best configuration achieved 88.94% accuracy, with 300 estimators, a learning rate of 0.0482, 50 leaves, 26 minimum child samples, a subsampling ratio of 0.8059, a feature sampling ratio of 0.4837, L1 regularization of 0.0292, and L2 regularization of 0.0147.
+We used Optuna with a TPE sampler to tune eight LightGBM hyperparameters: number of estimators, learning rate, number of leaves, minimum child samples, subsampling ratio, feature sampling ratio, and L1 and L2 regularization. The objective was to maximize mean observation-level Top-1 accuracy using 3-fold GroupKFold cross-validation. We conducted 40 trials (the first 10 random, then guided by TPE), of which 33 were completed and 7 were pruned. The best configuration (trial 30) achieved 89.02% accuracy, with 150 estimators, a learning rate of 0.016, 149 leaves, 52 minimum child samples, a subsampling ratio of 0.92, a feature sampling ratio of 0.61, L1 regularization of 0.0055, and L2 regularization of 0.0125.
 
 ## 6. Did tuning help? (tuned_vs_untuned_lightgbm.csv)
-Tuning did not significantly improve the model's overall performance. The cross-validation Macro F1 score increased slightly from 93.37% to 93.39%, but test Top-1 accuracy decreased from 89.93% to 89.66%, and test Macro F1 decreased from 93.66% to 93.51%. Test log loss also increased slightly. Therefore, the tuned model showed no meaningful improvement over the original model on the test data.
+Tuning did not significantly improve the classifier on its own. Cross-validation Top-1 stayed about the same (89.32% untuned vs 89.26% tuned), test Top-1 decreased from 89.93% to 89.41%, and log loss got worse (test 0.086 to 0.106), because the tuned model uses fewer trees with a low learning rate and gives softer probabilities. However, after HMM decoding the tuned model is slightly better (90.94% vs 91.14% with the default decoder), and it trains faster (6.5 s to 4.3 s). We deployed the tuned model.
 
 ## 7. Did the HMM help? (reports/hmm/student_test_summary.csv: top-1, route continuity, arc F1)
-Yes, the HMM improved route prediction quality compared to using the classifier alone. Top-1 accuracy increased from 89.66% to 90.52%, Arc F1 increased from 89.86% to 93.88%, and route continuity improved significantly from 83.81% to 99.90%. Route mismatch also decreased from 11.43% to 7.81%. This indicates that the HMM helped produce more consistent and realistic routes by considering road-network connectivity and GPS movement consistency.
+Yes, the HMM improved route prediction quality compared to using the classifier alone. Top-1 accuracy increased from 89.41% to 90.62%, Arc F1 increased from 89.50% to 94.14%, and route continuity improved significantly from 82.75% to 99.87%. Route mismatch also decreased from 11.54% to 7.92%. The HMM improved Top-1 on 9 of the 10 student-test trips; it did not help on trip 00000040 (94.6% to 93.1%). This indicates that the HMM helped produce more consistent and realistic routes by considering road-network connectivity and GPS movement consistency.
