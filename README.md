@@ -61,7 +61,9 @@ All randomness uses `seed` from `configs/default.json`.
 
 To run only some models: `python -m scripts.compare_models --models lightgbm random_forest`. The comparison table and plots are rebuilt from every `result_*.json` in `reports/models/`.
 
-`scripts.tune_bayes` defaults to 40 trials. The committed results used `--trials 15 --search-stride 6 --n-jobs 6`, and `scripts.tune_hmm` used `--dev-trips 15`, to fit the time available.
+The committed results used `scripts.tune_bayes --model lightgbm --trials 40 --search-stride 6 --n-jobs 6` and `scripts.tune_hmm --dev-trips 15`.
+
+All experiments ran on a team member's laptop: Windows 11, 16-thread CPU, 24 GB RAM, no GPU.
 
 ### Data partitions
 
@@ -114,3 +116,7 @@ The reference route is read only inside `pathsnap/evaluation.py`, after predicti
 - **Candidate miss rate**: share of label-valid fixes whose reference arc is not among their candidates.
 - **Route continuity**: share of consecutive arcs in the reconstructed route that are physically connected (head of one arc = tail of the next).
 - **Sequence level**: arc precision, recall and F1 between predicted and reference routes, length-weighted F1, and route mismatch fraction ((missing + extra length) / reference length, Newson & Krumm 2009).
+
+## AI-use disclosure
+
+The code base was scaffolded with the help of an AI coding assistant (Claude Code, Anthropic), which also assisted with documentation and parts of the report. All experiments were run by the team on a team member's laptop, and every reported number comes from the logged outputs in `reports/`. Team members reviewed the code and results, wrote their own section notes (`docs/notes/`), found and corrected a decoder defect through reruns, and are responsible for explaining their parts.

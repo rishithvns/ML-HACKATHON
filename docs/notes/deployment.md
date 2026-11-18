@@ -32,7 +32,22 @@ The offline report maps (`make_maps.py`) do draw the green reference route, but 
 
 ## Numbers
 
-To fill in after I run `make_maps` and the two-laptop rehearsal with M3's final model: per-trip Top-1 (classifier → HMM), arc F1 and request time from `reports/logs/api.log`.
+Student-test trips through the API with the final model (40-trial tuned LightGBM + tuned decoder). Request time is the full `POST /predict` on Laptop 1 (features, classifier, HMM and server-side scoring).
+
+| Trip | GPS points | Top-1 classifier → HMM | Route arc F1 (HMM) | Continuity (HMM) | Request time |
+|---|---|---|---|---|---|
+| 00000000 | 2,503 | 0.954 → 0.962 | 0.939 | 0.990 | 0.48 s |
+| 00000007 | 1,354 | 0.957 → 0.971 | 0.988 | 1.000 | 0.20 s |
+| 00000009 | 1,049 | 0.886 → 0.924 | 0.922 | 1.000 | 0.78 s |
+| 00000040 | 2,995 | 0.946 → 0.931 | 0.975 | 0.997 | 0.63 s |
+| 00000052 | 262 | 0.973 → 0.996 | 0.989 | 1.000 | 0.14 s |
+| 00000056 | 3,958 | 0.920 → 0.945 | 0.953 | 0.999 | 1.71 s |
+| 00000065 | 768 | 0.919 → 0.949 | 0.876 | 1.000 | 0.36 s |
+| 00000076 | 1,486 | 0.920 → 0.957 | 0.925 | 1.000 | 1.40 s |
+| 00000077 | 3,911 | 0.746 → 0.749 | 0.885 | 1.000 | 1.02 s |
+| 00000091 | 874 | 0.914 → 0.920 | 0.962 | 1.000 | 0.42 s |
+
+The two-laptop rehearsal worked: Laptop 2 joined Laptop 1's mobile hotspot (campus Wi-Fi blocks laptop-to-laptop traffic) and called `http://192.168.137.1:8000`. The API log on Laptop 1 showed the requests coming from Laptop 2's IP (`192.168.137.93`); screenshots are in `reports/screenshots/`. All 10 evaluator trips also returned HTTP 200 on Laptop 1 (0.2–3.1 s each).
 
 ## One limitation
 

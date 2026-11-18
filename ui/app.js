@@ -46,6 +46,9 @@ async function connect() {
     const t = await (await fetch(`${api()}/trips`)).json();
     setStatus(`connected · ${h.model || "model"}`, "ok");
     renderTrips(t.trips);
+    // optional ?trip=<id> opens a trip straight away (used for demos and screenshots)
+    const auto = params.get("trip");
+    if (auto && t.trips.some((x) => x.trip_id === auto)) runTrip(auto);
   } catch (e) {
     setStatus("cannot reach API", "err");
     $("trips").innerHTML = `<p class="muted">Could not reach ${api()}. Check the address and that the API is running.</p>`;

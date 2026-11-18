@@ -15,3 +15,6 @@ docs/guidelines/
 models/tuned_model.joblib
 
 reports/logs/api.log
+
+# technical report sources (submitted separately as a PDF)
+docs/report/
