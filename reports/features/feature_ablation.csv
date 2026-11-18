@@ -1,0 +1,7 @@
+n_features,dropped,fold0_top1
+22,,0.9156588075808724
+18,"turn, rank, dt_prev, head_valid",0.9148082188139602
+14,"win_mean_dist, dist_ratio, log_arc_len, dist, turn, rank, dt_prev, head_valid",0.9146487334201643
+10,"n_cand, win_rank, win_max_dist, in_deg, win_mean_dist, dist_ratio, log_arc_len, dist, turn, rank, dt_prev, head_valid",0.9131602030780681
+18,no window features,0.9051593524893012
+18,no heading features,0.6335025650567502
