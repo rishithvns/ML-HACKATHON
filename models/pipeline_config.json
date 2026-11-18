@@ -1,0 +1,98 @@
+{
+  "model_file": "final_model.joblib",
+  "feature_columns": [
+    "dist",
+    "rank",
+    "n_cand",
+    "dist_minus_min",
+    "dist_ratio",
+    "t_frac",
+    "at_endpoint",
+    "log_arc_len",
+    "head_diff",
+    "cos_head",
+    "head_valid",
+    "along_speed",
+    "speed",
+    "dt_prev",
+    "turn",
+    "win_mean_dist",
+    "win_max_dist",
+    "win_minus_min",
+    "win_rank",
+    "out_deg",
+    "in_deg",
+    "is_oneway"
+  ],
+  "config": {
+    "candidates": {
+      "radius_m": 50.0,
+      "max_k": 8,
+      "densify_step_m": 10.0
+    },
+    "features": {
+      "heading_window": 2,
+      "neighbour_window": 3,
+      "min_heading_disp_m": 3.0
+    },
+    "labels": {
+      "max_label_dist_m": 50.0,
+      "heading_penalty_m": 15.0
+    }
+  },
+  "hmm": {
+    "beta": 10.0,
+    "emission_weight": 0.5,
+    "uturn_penalty": 10.0,
+    "back_tolerance_m": 10.0,
+    "cutoff_base_m": 150.0,
+    "cutoff_factor": 2.0,
+    "max_gap_s": 600.0,
+    "min_prob": 0.0001
+  },
+  "meta": {
+    "model_name": "lightgbm (Optuna-tuned)",
+    "model_params": {
+      "n_estimators": 300,
+      "learning_rate": 0.048164145309070844,
+      "num_leaves": 50,
+      "min_child_samples": 26,
+      "subsample": 0.8059264473611898,
+      "colsample_bytree": 0.4836963163912251,
+      "reg_lambda": 0.01474275315991467,
+      "reg_alpha": 0.029204338471814112
+    },
+    "decoder_tuned_on": [
+      "00000008",
+      "00000010",
+      "00000019",
+      "00000037",
+      "00000048",
+      "00000055",
+      "00000063",
+      "00000072",
+      "00000078",
+      "00000086",
+      "00000089",
+      "00000090",
+      "00000095",
+      "00000098",
+      "00000099"
+    ],
+    "created_utc": "2026-11-18T06:13:01+00:00",
+    "student_test": {
+      "classifier_top1_accuracy": 0.8966184079862018,
+      "classifier_arc_f1": 0.8986142589857353,
+      "classifier_length_f1": 0.9458494237975904,
+      "classifier_route_mismatch": 0.11433597137804605,
+      "classifier_route_continuity": 0.8381030313529243,
+      "hmm_top1_accuracy": 0.9051899858882559,
+      "hmm_arc_f1": 0.9387608680605082,
+      "hmm_length_f1": 0.9632602578053936,
+      "hmm_route_mismatch": 0.07812992354614771,
+      "hmm_route_continuity": 0.9989551860916533,
+      "hmm_breaks_total": 3,
+      "hmm_seconds_total": 1.9452346000471152
+    }
+  }
+}
