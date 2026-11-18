@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PathSnap Evaluator</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>PathSnap <span>map-matching evaluator</span></h1>
+    <div class="api">
+      <label for="api-url">API</label>
+      <input id="api-url" type="text" spellcheck="false" placeholder="http://192.168.x.x:8000">
+      <button id="connect">Connect</button>
+      <span id="status" class="status idle">not connected</span>
+    </div>
+  </header>
+  <main>
+    <aside>
+      <section>
+        <h2>Evaluation trips</h2>
+        <div id="trips" class="trips"><p class="muted">Connect to the API to load trips.</p></div>
+      </section>
+      <section>
+        <h2>Results <span id="result-trip" class="muted"></span></h2>
+        <div id="metrics"><p class="muted">Select a trip.</p></div>
+      </section>
+    </aside>
+    <div class="map-wrap">
+      <div id="map"></div>
+      <div id="loading" class="loading hidden"><div class="spinner"></div><span>Running pipeline…</span></div>
+    </div>
+  </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>

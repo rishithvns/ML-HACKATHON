@@ -1,0 +1,3 @@
+# The evaluator UI (ui/) is static HTML/JS served by Python's standard library.
+# Laptop 2 needs only Python 3.9+ and a browser with internet access for the
+# Leaflet library and OpenStreetMap tiles. No packages to install.
