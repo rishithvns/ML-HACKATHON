@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+
+# raw data and derived tables are large; see README for where to put them
+data/raw/
+data/eval/*
+!data/eval/README.md
+data/processed/
+
+# course hand-outs
+docs/guidelines/
+
+# intermediate model (the final one in models/ is committed)
+models/tuned_model.joblib
+
+reports/logs/api.log

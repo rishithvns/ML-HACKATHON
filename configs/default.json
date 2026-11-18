@@ -1,0 +1,39 @@
+{
+  "seed": 42,
+  "paths": {
+    "train": "data/raw/train",
+    "student_test": "data/raw/student_test",
+    "eval": "data/eval",
+    "processed": "data/processed",
+    "models": "models",
+    "reports": "reports"
+  },
+  "candidates": {
+    "radius_m": 50.0,
+    "max_k": 8,
+    "densify_step_m": 10.0
+  },
+  "labels": {
+    "max_label_dist_m": 50.0,
+    "heading_penalty_m": 15.0
+  },
+  "features": {
+    "heading_window": 2,
+    "neighbour_window": 3,
+    "min_heading_disp_m": 3.0
+  },
+  "training": {
+    "train_point_stride": 2,
+    "cv_folds": 5
+  },
+  "hmm": {
+    "beta": 5.0,
+    "emission_weight": 1.0,
+    "uturn_penalty": 3.0,
+    "back_tolerance_m": 10.0,
+    "cutoff_base_m": 150.0,
+    "cutoff_factor": 2.0,
+    "max_gap_s": 600.0,
+    "min_prob": 0.0001
+  }
+}

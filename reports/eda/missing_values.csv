@@ -1,0 +1,9 @@
+partition,file,nan_values
+student_test,arcs,0
+student_test,nodes,0
+student_test,route,0
+student_test,track,0
+train,arcs,0
+train,nodes,0
+train,route,0
+train,track,0
