@@ -1,4 +1,4 @@
-# Features & model comparison (M2: Rishib)
+# Features & model comparison
 
 > Sources: `pathsnap/features.py`, `pathsnap/models.py`, `pathsnap/training.py`, `reports/models/model_comparison.csv`
 
