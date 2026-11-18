@@ -10,7 +10,9 @@ Every member also writes the per-model subsections (report §3.2) for 2–3 of t
 
 Repo: https://github.com/rishithvns/ML-HACKATHON
 
-| | Member 1: Data & EDA | Member 2: Features & models | Member 3: Tuning & HMM | Member 4: Deployment & maps |
+Team: **Rishit** (M1, repo owner), **Rishib** (M2), **Rishj** (M3), **Rhea** (M4).
+
+| | M1 Rishit: Data & EDA (repo owner) | M2 Rishib: Features & models | M3 Rishj: Tuning & HMM | M4 Rhea: Deployment & maps |
 |---|---|---|---|---|
 | **Code they own** | `pathsnap/io.py`, `pathsnap/geo.py`, `pathsnap/labels.py`, `pathsnap/config.py`, `configs/default.json`, `scripts/eda.py` | `pathsnap/network.py` (spatial index part), `pathsnap/features.py`, `pathsnap/dataset.py`, `pathsnap/models.py`, `pathsnap/training.py`, `scripts/compare_models.py` | `pathsnap/hmm.py`, `pathsnap/network.py` (Dijkstra part), `pathsnap/metrics.py`, `pathsnap/experiments.py`, `scripts/tune_bayes.py`, `scripts/tune_hmm.py` | `pathsnap/pipeline.py`, `pathsnap/evaluation.py`, `pathsnap/viz.py`, `api/`, `ui/`, `scripts/make_maps.py`, `README.md`, `requirements*.txt` |
 | **Runs / produces** | `python -m scripts.eda` → `reports/eda/` | `python -m scripts.compare_models` → `reports/models/` | `python -m scripts.tune_bayes`, then `python -m scripts.tune_hmm` → `reports/tuning/`, `reports/hmm/`, `models/` | `python -m scripts.make_maps` → `reports/maps/`; the two-laptop demo; API log and UI screenshots |
@@ -55,10 +57,10 @@ git checkout -b m<N>-<slice>
 
 | Member | Command(s) | Time on a 16-thread laptop | Commit |
 |---|---|---|---|
-| M1 | `.\.venv\Scripts\python -m scripts.eda` | ~1 min | `reports/eda/` |
-| M2 | `.\.venv\Scripts\python -m scripts.compare_models` | ~25–35 min (KNN, RF and MLP are slowest) | `reports/models/`, `reports/logs/compare_models.log` |
-| M3 | `.\.venv\Scripts\python -m scripts.tune_bayes --model lightgbm --trials 40`, then `.\.venv\Scripts\python -m scripts.tune_hmm` | ~30–45 min + ~8 min | `reports/tuning/`, `reports/hmm/`, `models/final_model.joblib`, `models/pipeline_config.json` |
-| M4 | after M3's model is merged: `git pull`, then `.\.venv\Scripts\python -m scripts.make_maps`, then run the API + UI demo | ~2 min | `reports/maps/`, screenshots of the UI and the API console |
+| M1 Rishit | `.\.venv\Scripts\python -m scripts.eda` | ~1 min | `reports/eda/` |
+| M2 Rishib | `.\.venv\Scripts\python -m scripts.compare_models` | ~25–35 min (KNN, RF and MLP are slowest) | `reports/models/`, `reports/logs/compare_models.log` |
+| M3 Rishj | `.\.venv\Scripts\python -m scripts.tune_bayes --model lightgbm --trials 40`, then `.\.venv\Scripts\python -m scripts.tune_hmm` | ~30–45 min + ~8 min | `reports/tuning/`, `reports/hmm/`, `models/final_model.joblib`, `models/pipeline_config.json` |
+| M4 Rhea | after M3's model is merged: `git pull`, then `.\.venv\Scripts\python -m scripts.make_maps`, then run the API + UI demo | ~2 min | `reports/maps/`, screenshots of the UI and the API console |
 
 - The first script you run builds `data/processed/` from the raw data (~1 min). It is cached and not committed.
 - The Laptop 1 used in the final evaluation needs `models/final_model.joblib` from M3's merged commit, or must rerun M3's steps.
