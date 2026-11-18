@@ -30,7 +30,7 @@ Team: **Rishit** (M1, repo owner), **Rishib** (M2), **Rishj** (M3), **Rhea** (M4
 **One-time setup** (Windows PowerShell, Python 3.11):
 
 ```powershell
-git clone https://github.com/<your-username-or-owner>/ML-HACKATHON.git
+git clone https://github.com/rishithvns/ML-HACKATHON.git
 cd ML-HACKATHON
 python -m pip install --upgrade pip
 python -m venv .venv
