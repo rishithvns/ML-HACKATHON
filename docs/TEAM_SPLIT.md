@@ -18,6 +18,21 @@ Repo: https://github.com/rishithvns/ML-HACKATHON
 | **§3.2 models they write up** | Logistic Regression, Gaussian NB | Decision Tree, Random Forest, Extra Trees | LightGBM, XGBoost, HistGradientBoosting | KNN, MLP |
 | **Viva topics** | file formats, projection choice, how labels come from `.route`, anomalous trips (33, 54), leakage rules | candidate radius/K, each feature and why, group CV, choosing the final model and the primary metric | search space, objective, trials and pruning, emission/transition formulas, the Viterbi recurrence, gap handling | how the API keeps labels server-side, request flow, UI, folium layers, running on two laptops |
 
+## Right now (before the Deliverable-1 check): about 10 minutes each, no setup needed
+
+1. **Repo owner:** Settings → Collaborators → invite the other three. They accept the invite from email or GitHub notifications.
+2. **Every member**, from their own GitHub account in the browser, reads the files they own (table below). Then they create `docs/notes/<slice>.md` with *Add file → Create new file* and write, in their own words:
+   - what their slice does and why it was designed that way,
+   - the numbers it produced (from `reports/`),
+   - one limitation they noticed.
+
+   Commit it with a clear message. The slices are `data_eda`, `features_models`, `tuning_hmm` and `deployment`.
+3. **Every member** opens one file of another member's slice on GitHub and leaves a review comment or question on a line. Use the line's "…" menu → *Reference in new issue*, or comment on a commit.
+
+## After Deliverable-1
+
+Each member clones the repo, sets up the venv (see README), reruns their slice's scripts on their own laptop, and commits the regenerated `reports/` outputs from their own account. They also write their report sections. This is the main, genuine contribution. The notes above are only the starting point.
+
 ## Git workflow
 
 The order matters because later slices import earlier ones.

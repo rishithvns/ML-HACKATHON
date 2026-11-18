@@ -32,7 +32,7 @@ from pathsnap.models import model_specs  # noqa: E402
 from pathsnap.training import evaluate, fit, group_cv, training_rows  # noqa: E402
 
 
-def search_space(model: str, trial: optuna.Trial, seed: int):
+def search_space(model: str, trial: optuna.Trial, seed: int, n_jobs: int = -1):
     if model == "lightgbm":
         from lightgbm import LGBMClassifier
         p = {
@@ -45,7 +45,7 @@ def search_space(model: str, trial: optuna.Trial, seed: int):
             "reg_lambda": trial.suggest_float("reg_lambda", 1e-3, 10.0, log=True),
             "reg_alpha": trial.suggest_float("reg_alpha", 1e-3, 10.0, log=True),
         }
-        return p, lambda: LGBMClassifier(**p, subsample_freq=1, random_state=seed, n_jobs=-1, verbose=-1)
+        return p, lambda: LGBMClassifier(**p, subsample_freq=1, random_state=seed, n_jobs=n_jobs, verbose=-1)
     if model == "xgboost":
         from xgboost import XGBClassifier
         p = {
@@ -59,19 +59,20 @@ def search_space(model: str, trial: optuna.Trial, seed: int):
             "gamma": trial.suggest_float("gamma", 1e-4, 5.0, log=True),
         }
         return p, lambda: XGBClassifier(**p, tree_method="hist", eval_metric="logloss",
-                                        random_state=seed, n_jobs=-1)
+                                        random_state=seed, n_jobs=n_jobs)
     raise ValueError(f"no search space defined for {model}")
 
 
-def make_from_params(model: str, params: dict, seed: int):
+def make_from_params(model: str, params: dict, seed: int, n_jobs: int = -1):
     trial = optuna.trial.FixedTrial(params)
-    return search_space(model, trial, seed)[1]
+    return search_space(model, trial, seed, n_jobs)[1]
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="lightgbm", choices=["lightgbm", "xgboost"])
     ap.add_argument("--trials", type=int, default=40)
+    ap.add_argument("--n-jobs", type=int, default=-1, help="threads per model fit")
     ap.add_argument("--search-folds", type=int, default=3)
     ap.add_argument("--search-stride", type=int, default=4,
                     help="observation stride for search rows (cheaper trials); final refit uses config stride")
@@ -90,7 +91,7 @@ def main():
     splits = list(GroupKFold(n_splits=args.search_folds).split(trips, groups=trips))
 
     def objective(trial: optuna.Trial):
-        params, make = search_space(args.model, trial, seed)
+        params, make = search_space(args.model, trial, seed, args.n_jobs)
         tops, f1s, lls = [], [], []
         t0 = time.perf_counter()
         for f, (tr_idx, va_idx) in enumerate(splits):
@@ -122,7 +123,7 @@ def main():
     train_rows = training_rows(cands, cfg["training"]["train_point_stride"])
     contexts = load_contexts("student_test", cfg)
     untuned_make = model_specs(seed)[args.model]["make"]
-    tuned_make = make_from_params(args.model, best, seed)
+    tuned_make = make_from_params(args.model, best, seed, args.n_jobs)
     rows, oof_tuned = [], None
     for label, make in (("untuned", untuned_make), ("tuned", tuned_make)):
         fm, oof = group_cv(make, train_rows, cands, points, cfg["training"]["cv_folds"], None, seed)
