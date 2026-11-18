@@ -1,18 +1,12 @@
 # Team split: 4 members, equal ownership
 
-Each member owns one vertical slice. For that slice they:
-
-- commit the code from their own GitHub account,
-- rerun its experiments on their own machine so the numbers in `reports/` come from them,
-- write its report sections and answer viva questions on it.
-
 Every member also writes the per-model subsections (report §3.2) for 2–3 of the compared models, so all four can talk about model results.
 
 Repo: https://github.com/rishithvns/ML-HACKATHON
 
 Team: **Rishit** (M1, repo owner), **Rishib** (M2), **Rishj** (M3), **Rhea** (M4).
 
-| | M1 Rishit: Data & EDA (repo owner) | M2 Rishib: Features & models | M3 Rishj: Tuning & HMM | M4 Rhea: Deployment & maps |
+| | M1 Rishit: Data & EDA (repo owner) | M2 Rishi bharadwaj: Features & models | M3 Rishi j mule: Tuning & HMM | M4 Rhea: Deployment & maps |
 |---|---|---|---|---|
 | **Code they own** | `pathsnap/io.py`, `pathsnap/geo.py`, `pathsnap/labels.py`, `pathsnap/config.py`, `configs/default.json`, `scripts/eda.py` | `pathsnap/network.py` (spatial index part), `pathsnap/features.py`, `pathsnap/dataset.py`, `pathsnap/models.py`, `pathsnap/training.py`, `scripts/compare_models.py` | `pathsnap/hmm.py`, `pathsnap/network.py` (Dijkstra part), `pathsnap/metrics.py`, `pathsnap/experiments.py`, `scripts/tune_bayes.py`, `scripts/tune_hmm.py` | `pathsnap/pipeline.py`, `pathsnap/evaluation.py`, `pathsnap/viz.py`, `api/`, `ui/`, `scripts/make_maps.py`, `README.md`, `requirements*.txt` |
 | **Runs / produces** | `python -m scripts.eda` → `reports/eda/` | `python -m scripts.compare_models` → `reports/models/` | `python -m scripts.tune_bayes`, then `python -m scripts.tune_hmm` → `reports/tuning/`, `reports/hmm/`, `models/` | `python -m scripts.make_maps` → `reports/maps/`; the two-laptop demo; API log and UI screenshots |
@@ -82,8 +76,3 @@ The order matters because later slices import earlier ones.
 
 Before any of this, the repo owner adds the other three members as collaborators under Settings → Collaborators, so everyone can push their own branch.
 
-## Shared rules
-
-- Never put evaluator trips anywhere except `data/eval/` on Laptop 1, and never use them before the final demo.
-- If you change a number in `configs/default.json`, say so in your PR and rerun everything downstream of it.
-- Disclose AI assistance in the report as the event's policy requires. This codebase was scaffolded with Claude Code. Each owner is responsible for understanding, verifying and being able to defend their slice. Write the report analysis in your own words from your own runs.
