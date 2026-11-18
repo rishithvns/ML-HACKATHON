@@ -1,0 +1,30 @@
+[I 2026-11-18 11:28:49,141] A new study created in memory with name: pathsnap_lightgbm
+[I 2026-11-18 11:31:04,292] Trial 0 finished with value: 0.8858866201757838 and parameters: {'n_estimators': 350, 'learning_rate': 0.17254716573280354, 'num_leaves': 118, 'min_child_samples': 75, 'subsample': 0.5780093202212182, 'colsample_bytree': 0.49359671220172163, 'reg_lambda': 0.0017073967431528124, 'reg_alpha': 2.9154431891537547}. Best is trial 0 with value: 0.8858866201757838.
+[I 2026-11-18 11:32:42,412] Trial 1 finished with value: 0.8869962110870774 and parameters: {'n_estimators': 550, 'learning_rate': 0.08341106432362087, 'num_leaves': 15, 'min_child_samples': 271, 'subsample': 0.9162213204002109, 'colsample_bytree': 0.5274034664069657, 'reg_lambda': 0.005337032762603957, 'reg_alpha': 0.00541524411940254}. Best is trial 1 with value: 0.8869962110870774.
+[I 2026-11-18 11:33:00,888] Trial 2 finished with value: 0.8893914174924337 and parameters: {'n_estimators': 300, 'learning_rate': 0.048164145309070844, 'num_leaves': 50, 'min_child_samples': 26, 'subsample': 0.8059264473611898, 'colsample_bytree': 0.4836963163912251, 'reg_lambda': 0.01474275315991467, 'reg_alpha': 0.029204338471814112}. Best is trial 2 with value: 0.8893914174924337.
+[I 2026-11-18 11:33:20,143] Trial 3 finished with value: 0.8874713924862038 and parameters: {'n_estimators': 400, 'learning_rate': 0.10508421338691762, 'num_leaves': 26, 'min_child_samples': 56, 'subsample': 0.7962072844310213, 'colsample_bytree': 0.42787024763199866, 'reg_lambda': 0.26926469100861794, 'reg_alpha': 0.004809461967501573}. Best is trial 2 with value: 0.8893914174924337.
+[I 2026-11-18 11:33:35,681] Trial 4 finished with value: 0.8853310404915519 and parameters: {'n_estimators': 100, 'learning_rate': 0.17160445029754812, 'num_leaves': 232, 'min_child_samples': 155, 'subsample': 0.6523068845866853, 'colsample_bytree': 0.45860326840383037, 'reg_lambda': 0.5456725485601477, 'reg_alpha': 0.057624872164786026}. Best is trial 2 with value: 0.8893914174924337.
+[I 2026-11-18 11:33:44,417] Trial 5 finished with value: 0.8879256078982883 and parameters: {'n_estimators': 150, 'learning_rate': 0.04407984038169244, 'num_leaves': 16, 'min_child_samples': 220, 'subsample': 0.6293899908000085, 'colsample_bytree': 0.7975133706123891, 'reg_lambda': 0.017654048052495083, 'reg_alpha': 0.12030178871154672}. Best is trial 2 with value: 0.8893914174924337.
+[I 2026-11-18 11:35:03,313] Trial 6 finished with value: 0.8876404310627554 and parameters: {'n_estimators': 500, 'learning_rate': 0.017398074711291726, 'num_leaves': 234, 'min_child_samples': 138, 'subsample': 0.9697494707820946, 'colsample_bytree': 0.9368964102565893, 'reg_lambda': 0.24637685958997463, 'reg_alpha': 4.869640941520899}. Best is trial 2 with value: 0.8893914174924337.
+[I 2026-11-18 11:35:12,864] Trial 7 finished with value: 0.8880705687866395 and parameters: {'n_estimators': 150, 'learning_rate': 0.017987863473362915, 'num_leaves': 17, 'min_child_samples': 29, 'subsample': 0.6943386448447411, 'colsample_bytree': 0.5628094190643376, 'reg_lambda': 2.0651425578959257, 'reg_alpha': 0.026730883107816707}. Best is trial 2 with value: 0.8893914174924337.
+[I 2026-11-18 11:35:19,827] Trial 8 pruned. 
+[I 2026-11-18 11:35:32,463] Trial 9 finished with value: 0.8871751370180818 and parameters: {'n_estimators': 100, 'learning_rate': 0.11506408247250169, 'num_leaves': 110, 'min_child_samples': 118, 'subsample': 0.8856351733429728, 'colsample_bytree': 0.44442679104045424, 'reg_lambda': 0.02715581955282941, 'reg_alpha': 0.0029072088906598446}. Best is trial 2 with value: 0.8893914174924337.
+[I 2026-11-18 11:35:41,785] Trial 10 pruned. 
+[I 2026-11-18 11:36:08,744] Trial 11 finished with value: 0.889124108751627 and parameters: {'n_estimators': 350, 'learning_rate': 0.03407489623305759, 'num_leaves': 40, 'min_child_samples': 34, 'subsample': 0.797999253809749, 'colsample_bytree': 0.5291478000461615, 'reg_lambda': 0.16178908669684827, 'reg_alpha': 0.09176519821117546}. Best is trial 2 with value: 0.8893914174924337.
+[I 2026-11-18 11:36:28,284] Trial 12 finished with value: 0.8892745171069841 and parameters: {'n_estimators': 150, 'learning_rate': 0.04479468940851563, 'num_leaves': 47, 'min_child_samples': 54, 'subsample': 0.8260333197981771, 'colsample_bytree': 0.40490655643996315, 'reg_lambda': 0.01736577760136347, 'reg_alpha': 0.009758310658765087}. Best is trial 2 with value: 0.8893914174924337.
+[I 2026-11-18 11:37:11,098] Trial 13 finished with value: 0.8885194850709871 and parameters: {'n_estimators': 250, 'learning_rate': 0.04066234445914622, 'num_leaves': 126, 'min_child_samples': 61, 'subsample': 0.7894029986378864, 'colsample_bytree': 0.4539766303457589, 'reg_lambda': 0.003744799885958325, 'reg_alpha': 0.0034229563757543096}. Best is trial 2 with value: 0.8893914174924337.
+[I 2026-11-18 11:37:21,246] Trial 14 finished with value: 0.8891126611330648 and parameters: {'n_estimators': 100, 'learning_rate': 0.05613130131721698, 'num_leaves': 74, 'min_child_samples': 12, 'subsample': 0.8935099323516347, 'colsample_bytree': 0.4192036573038896, 'reg_lambda': 0.005622597424601611, 'reg_alpha': 0.004553912576006483}. Best is trial 2 with value: 0.8893914174924337.
+best 0.8893914174924337 {'n_estimators': 300, 'learning_rate': 0.048164145309070844, 'num_leaves': 50, 'min_child_samples': 26, 'subsample': 0.8059264473611898, 'colsample_bytree': 0.4836963163912251, 'reg_lambda': 0.01474275315991467, 'reg_alpha': 0.029204338471814112}
+                                    0          1
+variant                       untuned      tuned
+cv_macro_f1                  0.933697   0.933933
+cv_macro_f1_std              0.026213   0.026281
+cv_top1                       0.89321   0.892518
+cv_log_loss                  0.094102   0.093116
+test_top1                    0.899284   0.896618
+test_macro_f1                0.936556   0.935124
+test_log_loss                0.085499   0.086211
+test_hmm_top1                0.909371   0.906079
+test_hmm_arc_f1              0.945221   0.941965
+fit_seconds                 12.267412   6.930005
+inference_ms_per_1k_points  20.174118  28.270287

@@ -1,0 +1,33 @@
+{
+  "model": "lightgbm",
+  "objective": "mean group-CV observation Top-1 accuracy (maximise)",
+  "search_folds": 3,
+  "search_stride": 6,
+  "n_trials": 15,
+  "n_completed": 13,
+  "n_pruned": 2,
+  "best_value": 0.8893914174924337,
+  "best_params": {
+    "n_estimators": 300,
+    "learning_rate": 0.048164145309070844,
+    "num_leaves": 50,
+    "min_child_samples": 26,
+    "subsample": 0.8059264473611898,
+    "colsample_bytree": 0.4836963163912251,
+    "reg_lambda": 0.01474275315991467,
+    "reg_alpha": 0.029204338471814112
+  },
+  "search_seconds": 512.1044934999954,
+  "param_importance": {
+    "learning_rate": 0.31640974334977257,
+    "reg_lambda": 0.285853809451966,
+    "num_leaves": 0.18282129673057265,
+    "subsample": 0.13305556118217077,
+    "min_child_samples": 0.05145218971003629,
+    "reg_alpha": 0.017507679323000774,
+    "n_estimators": 0.008243684287133974,
+    "colsample_bytree": 0.004656035965346968
+  },
+  "sampler": "TPESampler(seed, n_startup_trials=10)",
+  "pruner": "MedianPruner(n_startup_trials=5)"
+}
